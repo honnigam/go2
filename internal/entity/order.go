@@ -12,6 +12,7 @@ type Order struct {
 
 //ponteiro de order e um error - originalizando 2 valores dentro de uma só função
 func NewOrder(id string, price float64, tax float64, finalprice float64) (*Order, error) {
+	//apontamento da order
 	order := &Order{
 		ID:    id,
 		Price: price,
@@ -22,7 +23,7 @@ func NewOrder(id string, price float64, tax float64, finalprice float64) (*Order
 	if err != nil {
 		return nil, err
 	}
-	return order, err
+	return order, nil
 
 }
 
@@ -31,7 +32,7 @@ func (o *Order) Validate() error {
 	if o.ID == "" {
 		return errors.New("Id is required")
 	}
-	if o.Price == 0 {
+	if o.Price <= 0 {
 		return errors.New("Invalid Price")
 	}
 	if o.Tax <= 0 {
