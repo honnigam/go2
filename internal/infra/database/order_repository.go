@@ -19,7 +19,7 @@ func NewOrderRepository(db *sql.DB) *OrderRepository {
 
 // função de implementação do método
 func (r *OrderRepository) Save(order *entity.Order) error {
-	_, err := r.Db.Exec("Insert into orders (id, price, tax, final_price) Values(?,?,?,?)",
+	_, err := r.Db.Exec("insert into orders (id, price, tax, final_price) Values(?,?,?,?)",
 		order.ID, order.Price, order.Tax, order.FinalPrice) //substitui por '?,?,?,?'
 	if err != nil {
 		return err
@@ -28,7 +28,7 @@ func (r *OrderRepository) Save(order *entity.Order) error {
 }
 
 // função de consulta e alteração da linha no banco
-func (r *OrderRepository) getTotal() (int, error) {
+func (r *OrderRepository) GetTotal() (int, error) {
 	var total int
 	err := r.Db.QueryRow("select count (*) from orders").Scan(&total)
 	if err != nil {

@@ -7,7 +7,7 @@ import (
 )
 
 // função teste Id
-func Test_If_It_Get_An_Error_If_Id_Is_Blank(t *testing.T) {
+func Test_If_It_Gets_An_Error_If_Id_Is_Blank(t *testing.T) {
 	order := Order{}
 	assert.Error(t, order.Validate(), "Invalid ID")
 }
