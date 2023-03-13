@@ -1,6 +1,7 @@
 package database
 
 import (
+	//configuração do perfil das estruturas usadas
 	"database/sql"
 	"testing"
 
