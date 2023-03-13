@@ -35,6 +35,7 @@ func TestSuite(t *testing.T) {
 	suite.Run(t, new(OrderRepositoryTestSuite))
 }
 
+// função de salvamento do teste
 func (suite *OrderRepositoryTestSuite) TestSavingOrder() {
 	order, err := entity.NewOrder("123", 10.0, 1.0)
 	suite.NoError(err)
